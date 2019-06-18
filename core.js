@@ -44,13 +44,25 @@ function persistence(num)
     return 1 + persistence(testResult);
 }
 
+/**
+ * Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). 
+ * Jaden is also known for some of his philosophy that he delivers via Twitter. 
+ * When writing on Twitter, he is known for almost always capitalizing every word.
+ * Your task is to convert strings to how they would be written by Jaden Smith. 
+ * The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+ */
+
 String.prototype.toJadenString = function () {
 
     return this.split(' ').map((element) => {
         return element.charAt(0).toUpperCase() + element.substring(1) ;
     }).join(' ');
 }
-
+/**
+ *  Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), 
+ *  from smallest to largest. 
+ *  If the number is prime return the string '(integer) is prime' (null in C#) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust).
+ */
 function divisors(integer)
 {
     let possibleDivisors = [] ;
@@ -76,6 +88,13 @@ function multipy (a,b)
     return a*b;
 }
 
+/**
+ * Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+ * For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+ * [10, 343445353, 3453445, 3453545353453] should return 3453455.
+ * 
+ * @param {integer} numbers 
+ */
 
 function sumOfLowestPositiveInteger(numbers){
 
@@ -91,6 +110,13 @@ function sumOfLowestPositiveInteger(numbers){
 
     return numbers[0] + numbers[1] ;
 }
+
+/**
+ * Simple, given a string of words, return the length of the shortest word(s).
+ * String will never be empty and you do not need to account for different data types.
+ * 
+ * @param {String} s 
+ */
 
 function shortestWord(s)
 {
