@@ -1,3 +1,250 @@
+/**
+ * Destructive parameters. depends on function dependOns
+ */
+function double({ year = dependOn('year') , age = 0 , size = 0  } = {} ) {
+
+    year *=2; age*=2; size*=2;
+
+
+    return {year,age,size}
+}
+
+function dependOn(param)
+{
+    let error =  new Error(`The parameter ${param} is required`);
+
+    throw error;
+}
+
+/**
+ *  Natural calculator
+ */
+const one = (fn) => {
+    let digit = 1 ;
+    if(fn == undefined)
+          return digit;
+      else
+          return compute(digit,fn);
+          
+  };
+  
+  const compute = (digit,fn) => {
+  
+      let mathOperand = fn;
+  
+      switch(mathOperand.operator)
+      {
+          case "plus":
+              return digit + mathOperand.y;
+          case "multiply":
+              return digit * mathOperand.y;
+          case "subtract":
+              return digit - mathOperand.y;
+          case "divide" :
+              return digit / mathOperand.y;             
+      }
+  
+      
+              
+  }
+  
+  const two = (fn) => {
+  
+      let digit = 2;
+      if(fn == undefined)
+          return digit;
+      else
+          return compute(digit,fn);
+  
+  };
+  
+  const plus = (randomX) => {
+  
+      return {
+          "operator" : "plus",
+          "y":randomX
+      }
+  };
+
+/**
+ * There is an array with some numbers. All numbers are equal except for one. Try to find it!
+ */
+function findUniq(arr)
+{
+    let xArr =  arr.reduce((accumulate,currentValue) => {   
+        
+        if(currentValue in accumulate)
+            accumulate[currentValue]++;
+        else
+            accumulate[currentValue] = 1; 
+
+        return accumulate;
+
+    },{}); 
+
+
+    return Number(Object.keys(xArr).filter(e => {
+        return xArr[e] == 1
+    }));
+}
+
+
+
+/**
+ * Given two arrays a and b write a function comp(a, b) (compSame(a, b) in Clojure) that checks whether the two arrays have the "same" elements,
+ * with the same multiplicities. 
+ * "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+ * 
+ * Interesting test case occur when the array has zero 
+ * [63, 97, 0, 21, 3, 81, 83], [3969, 9409, 0, 441, 9, 6561, 6889]
+ */
+function comp(array1, array2) {
+
+    if (array1 == null || array1 == undefined ||
+        array2 == null || array2 == undefined || array1.length !== array2.length)
+        return false;
+
+
+    return compsame(array1, array2);
+
+
+    function compsame(array1, array2) {
+
+        array1 = array1.map(element => {
+            return element * element
+        }).sort((element1, element2) => {
+
+            return element1 > element2;
+
+        })
+
+
+        let newArray = [];
+
+        newArray = array2.sort((element1, element2) => {
+            return element1 > element2
+        }).filter((element, cIndex) => {
+
+            if (array1[cIndex] === element) {
+                newArray.push(element);
+                return newArray;
+            }
+
+        });
+
+        return newArray.length == array1.length;
+
+
+    }
+}
+
+/**
+ * The goal of this exercise is to convert a string to a new string where each character in the new string 
+ * is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. 
+ * Ignore capitalization when determining if a character is a duplicate.
+ * 
+ */
+function duplicateEncode(word) {  
+    
+    let countDuplicate =  {};
+
+    countDuplicate = word.toLowerCase().split('').reduce((accumulate,currentValue,cIndex,cArray) => {      
+            
+        if(currentValue in accumulate)
+            accumulate[currentValue]++;
+         else
+            accumulate[currentValue] = 1;
+        
+        return accumulate;    
+         
+    },{});
+
+
+
+   return word.toLowerCase().split('').reduce((accumulate,currentValue) => {
+        
+        if(countDuplicate[currentValue]>= 2)
+        {
+            accumulate.push(")");
+        }
+        else{
+            accumulate.push('(');
+        }
+
+        return accumulate
+    },[]).join('');
+
+    
+    
+}
+
+/**
+ * Given: an array containing hashes of names
+ * Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
+ */
+function listNames (names) {  
+    
+    let lastTwoNames = [] ;
+
+    if(names.length >= 2){
+        lastTwoNames.unshift(names.pop()['name']);
+        lastTwoNames.unshift(names.pop()['name']);
+        names.push({name: lastTwoNames.join(" & ")});
+    }
+
+    return names.reduce((accumulate,currentValue) => {
+       
+        accumulate.push(currentValue['name'])
+
+        return accumulate;
+        
+    },[]).join(', ');
+
+    
+
+    
+
+    
+}
+
+/**
+ * Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. 
+ * You can guarantee that input is non-negative.
+ */
+function countBits (n) {    
+
+    return n.toString(2).split('').reduce((accumulate, currentValue) => {
+
+        if(currentValue == '1')
+            accumulate++;
+        
+            return accumulate;    
+
+    },0);
+}
+
+/**
+ * Filter out WUB from a song lyric
+ */
+function songDecoder(song)
+{
+    return song.toUpperCase().split('WUB').filter(text => text != '').join(' ');
+}
+
+/**
+ * Shift an array by two to the left
+ */
+function circle(aList)
+{
+   let newList = [];
+    newList.unshift(aList.shift());
+    newList.unshift(aList.shift());
+    return aList.concat(newList);  
+
+    
+}
+
+
 /*
 *   Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters,
 *   each taken only once - coming from s1 or s2.
