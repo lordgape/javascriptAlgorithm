@@ -1,4 +1,160 @@
 /**
+ * 
+ * priceCheck
+ */
+function priceCheck(products, productPrice, productSold, soldPrice) {
+
+
+
+    let productPriceRegister = products.reduce((accumulator, currentElement, currentIndex) => {
+
+        accumulator[currentElement] = productPrice[currentIndex];
+
+        return accumulator;
+
+    }, {});
+
+
+    return productSold.filter((element,currentIndex) => {
+        
+       return productPriceRegister[element] != soldPrice[currentIndex];
+    }).length;
+
+    
+}
+
+/**
+ * manipulateStudentRecord
+ */
+function manipulateStudentRecord(obj, operation, prop, newValue) {
+
+    if (operation == "delete" && Object.prototype.hasOwnProperty.call(obj, prop)) {
+        delete obj[prop];
+    }
+
+    if (operation == "edit" && Object.prototype.hasOwnProperty.call(obj, prop)) {
+        obj[prop] = newValue;
+    }
+
+
+    return obj;
+}
+
+
+/**
+ * Printing steps.
+ */
+function printSteps(n)
+{
+    for(let row = 0; row < n ; row ++)
+    {
+        let step = "";
+
+        for (let column = 0; column < n; column++)
+        {
+            if(column <= row)
+            {
+                step += "#" ;
+            }
+            else
+            {
+                step += " ";
+            }
+        }
+
+        console.log(step);
+    }
+}
+
+/**
+ * 
+ * @param {String} hex An hashed password from register
+ */
+function heidiDecode(hex) {
+    var str = '';
+    var shift = parseInt(hex.substr(-1));
+    hex = hex.substr(0, hex.length - 1);
+    for (var i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16) - shift); return str; 
+} 
+
+/**
+ *  Capitalize each word in a string 
+ */
+function capitalize(str)
+{
+    return  str.split(' ').map((element) => {
+
+            element = element[0].toUpperCase() + element.slice(1);
+
+            return element;
+
+        }).join(' ');
+}
+
+/**
+ * Anagram problem. Check if two string uses the same number of character to form different or the same words. Ignore whitespace and puntunctions and special character
+ */
+
+function anagram(stringA, stringB)
+{
+   return cleanString(stringA) === cleanString(stringB) ;
+}
+
+function cleanString(str)
+{
+    return str.replace(/[^\w]/g,'').toLowerCase().split('').sort().join('');
+}
+
+/**
+ * Array Chunked 
+ */
+function chunk(array,size)
+{
+    let chunked = [];
+
+    let index = 0; 
+
+    while(index < array.length)
+    {
+        chunked.push(array.slice(index,index + size));
+        index += size ;
+        
+    }
+
+    // for(let element of array)
+    // {
+    //     let last = chunked[chunked.length -1] ;
+
+    //     if(!last || last.length === size)
+    //     {
+    //         chunked.push([element]);
+    //     }
+    //     else{
+
+    //         last.push(element);
+    //     }
+    // }
+
+    return chunked;
+}
+
+/**
+ *  Maximum Char in a string
+ */
+function maxChar (str) {
+
+    let maxCharMap = {} ;
+
+    for (let character of str)
+        maxCharMap[character] = maxCharMap[character] + 1 || 1;
+
+     let maxValue = Math.max(...Object.values(maxCharMap)) ;
+
+     return Object.keys(maxCharMap).filter(key => maxCharMap[key] == maxValue)[0];
+}
+
+
+/**
  * Destructive parameters. depends on function dependOns
  */
 function double({ year = dependOn('year') , age = 0 , size = 0  } = {} ) {
