@@ -1,65 +1,33 @@
 'use strict';
 
 
-function priceCheck(products, productPrice, productSold, soldPrice) {
+function missingInteger(A)
+{
 
-
-
-    let productPriceRegister = products.reduce((accumulator, currentElement, currentIndex) => {
-
-        accumulator[currentElement] = productPrice[currentIndex];
-
-        return accumulator;
-
-    }, {});
-
-
-    return productSold.filter((element,currentIndex) => {
-        
-       return productPriceRegister[element] != soldPrice[currentIndex];
-    }).length;
-
-    
+    let MapPositiveInteger = A.reduce((accumulator,currentElement) => {
+        if(currentElement > 0)
+             accumulator[currentElement] = true
+ 
+         return accumulator;
+     },{});
+ 
+     let sizeOfMappedinteger = Object.keys(MapPositiveInteger).length;
+ 
+     if(sizeOfMappedinteger == 0)
+         return 1;
+ 
+     for(let i = 1 ; i <= sizeOfMappedinteger; i++)
+     {
+         if(!MapPositiveInteger[i]) return i;
+     }
+ 
+     return Math.max(...A) + 1;
 }
 
-
-let products = ["egg", "yam", "bean"];
-
-let productPrice = [20.00, 30.00, 40.01];
-
-let productSold = ["egg", "yam",];
-
-let soldPrice = [20.10, 30.10];
+console.log("Mising integer is",missingInteger([1, 3, 6, 4, 1, 2]));
 
 
 
-console.log(`Calling Price check ${priceCheck(products, productPrice, productSold, soldPrice)}`);
 
 
 
-function manipulateStudentRecord(obj, operation, prop, newValue) {
-
-    if (operation == "delete" && Object.prototype.hasOwnProperty.call(obj, prop)) {
-        delete obj[prop];
-    }
-
-    if (operation == "edit" && Object.prototype.hasOwnProperty.call(obj, prop)) {
-        obj[prop] = newValue;
-    }
-
-
-    return obj;
-}
-
-let myObj = {
-
-    hasOwnProperty: function (myprop) {
-        return false;
-    },
-    name: "John",
-    lastname: "Doe",
-    city: "Florida",
-    "": null
-};
-
-//console.log(`Manipulate Record ${JSON.stringify(manipulateStudentRecord(myObj,"delete","name","Seatle"))}`);

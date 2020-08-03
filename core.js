@@ -1,3 +1,72 @@
+
+/**
+ * 
+ * @description Find the smallest positive integer that does not occur in a given sequence.
+ */
+
+function missingInteger(A)
+{
+
+    let MapPositiveInteger = A.reduce((accumulator,currentElement) => {
+       if(currentElement > 0)
+            accumulator[currentElement] = true
+
+        return accumulator;
+    },{});
+
+    let sizeOfMappedinteger = Object.keys(MapPositiveInteger).length;
+
+    if(sizeOfMappedinteger == 0)
+        return 1;
+
+    for(let i = 1 ; i <= sizeOfMappedinteger; i++)
+    {
+        if(!MapPositiveInteger[i]) return i;
+    }
+
+    return Math.max(...A) + 1;
+
+}
+
+/**
+ * 
+ * @description  pair is complete
+ */
+const isParenComplete = (str) => (!str.split("").reduce((prev, char) => {
+    
+    console.log(`R1 ${prev} ${char}`);
+    
+    if(prev < 0) {
+        console.log(`R2 ${prev}`);
+      return prev
+    }
+    if (char === "(") {
+    //    console.log(`R3 ${prev}`);
+      return ++prev
+    }
+    if (char === ")") {
+            console.log(`R4 ${prev}`);
+      return --prev
+    }
+    return prev
+  }, 0))
+
+
+/**
+ * 
+ * sumOfDigit
+ * 
+ */
+
+
+function sumOfDigit(digit) {
+
+    
+    if (Math.floor(digit) == 0)
+        return 0;
+    return Math.floor(digit % 10 )+ sumOfDigit(digit / 10);
+}
+
 /**
  * 
  * priceCheck
