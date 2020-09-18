@@ -1,6 +1,7 @@
 'use strict';
 
 
+
 function missingInteger(A)
 {
 
@@ -24,7 +25,7 @@ function missingInteger(A)
      return Math.max(...A) + 1;
 }
 
-console.log("Mising integer is",missingInteger([1, 3, 6, 4, 1, 2]));
+//console.log("Mising integer is",missingInteger([1, 3, 6, 4, 1, 2]));
 
 
 

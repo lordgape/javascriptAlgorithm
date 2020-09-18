@@ -1,3 +1,25 @@
+/**
+ * 
+ * Most repeated word
+ */
+
+function findMostReaptedWord(str){
+    let mapCount = {}; 
+    let mostRepeating;
+    let currentCount = 0;
+    str.match(/\w+/g).forEach(function(word){ mapCount[word]=(mapCount[word]||0)+1 });
+    console.log(mapCount);
+    for (let word in mapCount) {
+      if (mapCount[word] > currentCount) {
+        currentCount = mapCount[word];
+        mostRepeating = word;
+      }
+    }
+    return mostRepeating;
+}
+
+
+
 
 /**
  * 
