@@ -5,27 +5,33 @@
 function missingInteger(A)
 {
 
-    let MapPositiveInteger = A.reduce((accumulator,currentElement) => {
-        if(currentElement > 0)
-             accumulator[currentElement] = true
+    // let MapPositiveInteger = A.reduce((accumulator,currentElement) => {
+    //     if(currentElement > 0)
+    //          accumulator[currentElement] = true
  
-         return accumulator;
-     },{});
+    //      return accumulator;
+    //  },{});
  
-     let sizeOfMappedinteger = Object.keys(MapPositiveInteger).length;
+    //  let sizeOfMappedinteger = Object.keys(MapPositiveInteger).length;
  
-     if(sizeOfMappedinteger == 0)
-         return 1;
+    //  if(sizeOfMappedinteger == 0)
+    //      return 1;
  
-     for(let i = 1 ; i <= sizeOfMappedinteger; i++)
-     {
-         if(!MapPositiveInteger[i]) return i;
-     }
+    //  for(let i = 1 ; i <= sizeOfMappedinteger; i++)
+    //  {
+    //      if(!MapPositiveInteger[i]) return i;
+    //  }
  
-     return Math.max(...A) + 1;
-}
+    //  return Math.max(...A) + 1;
 
-//console.log("Mising integer is",missingInteger([1, 3, 6, 4, 1, 2]));
+    try {
+        const n = 1+ z;
+        console.log(n);
+    } catch (err) {
+        console.log(err.name);
+    }
+}
+console.log("Mising integer is",missingInteger());
 
 
 
