@@ -55,3 +55,34 @@ each element of array A is an integer within the range [1..N + 1].
  function maxCounter(N,A) {
      
  }
+
+
+ function utility_fun_for_del(Str, i, j){
+
+    if (i >= j)
+        return 0
+ 
+    // Condition to compare charecters
+    if (Str[i] == Str[j]){
+
+        //Recursive function call
+        return utility_fun_for_del(Str, i + 1, j - 1)
+    }   
+ 
+    // Return value, increamenting by 1
+    // return minimum Element between two values    
+    return (1 + min(utility_fun_for_del(Str, i + 1, j), utility_fun_for_del(Str, i, j - 1)))
+ 
+ }
+
+ // Function to calculate the minimum
+// Element required to delete for
+// Making string pelindrom
+function min_ele_del(Str) {
+ 
+    // Utility function call
+    return utilityDel(Str, 0, Str.length - 1)
+
+ }
+     
+    

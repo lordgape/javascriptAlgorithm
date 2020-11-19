@@ -27,4 +27,4 @@ const swap = (str, fromPosition, toPosition) => {
   
 };
 
-console.log("", permutation("TURING"));
+console.log("", permutation("ABC"));
