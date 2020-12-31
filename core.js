@@ -18,6 +18,16 @@ function findMostReaptedWord(str){
     return mostRepeating;
 }
 
+const filterDuplicate = (arr) => {
+
+    return Object.keys( arr.reduce((acc,currentValue) => {
+        acc[currentValue] = 0
+        return acc
+    },{}));
+  
+  
+};
+
 
 
 
