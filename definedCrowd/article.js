@@ -75,6 +75,6 @@ const getTitles = (articles) => {
 }
 
 
-getArticleTitles("epaga").then((response) => {
+getArticleTitles("olalonde").then((response) => {
     console.log("Result ",response);
 });
