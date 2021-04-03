@@ -1,4 +1,39 @@
 /**
+ *  console.log(isAnagram("anagram","nagaram"));
+ * @param {Anagram} str 
+ */
+
+ const isAnagram = (s,t) => {
+     let strS = {}
+     if(s.length !== t.length) return false;
+     for(let char of s)
+     {
+         strS[char] = (str[char] || 0) + 1
+         console.log(strS[char]);
+     }
+     for(let char of t)
+     {
+         if(!strS[char]) return false
+         strS[char]--
+     }
+
+     return true
+ }
+
+/**
+ * 
+ * @param {Palidrome} str 
+ */
+function palindrome(str) {
+    var re = /[\W_]/g;
+    var lowRegStr = str.toLowerCase().replace(re, '');
+    var reverseStr = lowRegStr.split('').reverse().join(''); 
+    return reverseStr === lowRegStr;
+  }
+  palindrome("A man, a plan, a canal. Panama");
+
+
+/**
  * 
  * Most repeated word
  */

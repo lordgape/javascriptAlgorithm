@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chesvic Lordgape",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jsontoxml": "^1.0.1",
+    "xml2js": "^0.4.23"
+  }
 }
