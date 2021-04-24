@@ -16,7 +16,7 @@ const averageSum = (array) => {
     let maximumRating = Math.max(...allRatings);
 
     let average = allRatings.reduce((acc,currentValue) => {
-          return  acc +=currentValue
+          return  acc + currentValue
     },0)/allRatings.length;
 
     return {average, maximumRating}
