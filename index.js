@@ -13,7 +13,3 @@
 // const result = Formatter.convertJsonToSoapRequest(payload);
 
 // console.log(`Here is mmy result`, result);
-
-
-
-
