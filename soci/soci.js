@@ -1,4 +1,12 @@
 /*
+select count(p.id) from posts p 
+inner join email u on p.user_id = u.id 
+where u.email = "test@gmail.com" and 
+p.created_at >= date_sub(curdate(), interval 30 day)
+*/
+
+
+/*
 (JavaScript) You are given a paginated response from a REST API that contains information about movies. 
 All the pages have been already fetched and you are given the following data structure. 
 Your goal is to determine the average and maximum rating of all the movies in the dataset (two single values). 
