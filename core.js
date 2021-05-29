@@ -46,7 +46,7 @@ const isAnagram = (s, t) => {
   let strS = {};
   if (s.length !== t.length) return false;
   for (let char of s) {
-    strS[char] = (str[char] || 0) + 1;
+    strS[char] = (strS[char] || 0) + 1;
     console.log(strS[char]);
   }
   for (let char of t) {
