@@ -1,31 +1,141 @@
-// LARGE array of size N
-// contains number in range of 1 and N
-// exactly 1 number missing
-// exactly 1 number repeated
-// find both missing and repeated number
-// without using extra space
+const listOfWorkingHr = {
+  monday: [
+    {
+      type: "close",
+      value: 75600,
+    },
+  ],
+  tuesday: [
+    {
+      type: "open",
+      value: 36000,
+    },
+    {
+      type: "close",
+      value: 64800,
+    },
+  ],
+  wednesday: [],
+  thursday: [
+    {
+      type: "open",
+      value: 36000,
+    },
+    {
+      type: "close",
+      value: 64800,
+    },
+  ],
+  friday: [
+    {
+      type: "open",
+      value: 36000,
+    },
+  ],
+  saturday: [
+    {
+      type: "close",
+      value: 3600,
+    },
+    {
+      type: "open",
+      value: 36000,
+    },
+  ],
+  sunday: [
+    {
+      type: "close",
+      value: 3600,
+    },
+    {
+      type: "open",
+      value: 43200,
+    },
+    {
+      type: "close",
+      value: 75600,
+    },
+    {
+      type: "open",
+      value: 43200,
+    },
+  ],
+};
 
-// e.g
-// 5,4,4,1,3 -> [2, 4]
-// 6,5,4,5,3,2 -> [1, 5]
+const openingHours = (listOfWorkingHr) => {
+  const daysOfTheWeek = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+  for (let i = 0; i < 7; i++) {
+    const dayOfWeek = daysOfTheWeek[i];
+    let businessDayOpeningHours = listOfWorkingHr[dayOfWeek];
 
-const duplicateAndMissing = (arrayN) => {
-  
-    arrayN = arrayN.sort((a,b) => a > b);
-      
-    for(let i=1; i<=arrayN.length; i++) {
-      if(!arrayN.includes(i) ) {
-        console.log(i)
-      }
-      
-      
-      if(arrayN[i-1] == arrayN[i]) {
-        console.log(arrayN[i])
-      }
+    if (
+      businessDayOpeningHours.length > 1 &&
+      businessDayOpeningHours.length % 2 == 0 &&
+      businessDayOpeningHours[0].type == "open"
+    ) {
+      printBusinessHour(dayOfWeek, businessDayOpeningHours);
+    }
+
+    if (businessDayOpeningHours.length == 0 ) {
+      printCloseBusinessDay(dayOfWeek);
+    }
+    
+    if (businessDayOpeningHours.length == 1 && businessDayOpeningHours[0].type == "close" && dayOfWeek == "monday" ) {
+      printCloseBusinessDay(dayOfWeek);
+    }
+
+    if (
+      businessDayOpeningHours.length > 0 &&
+      businessDayOpeningHours.length % 2 != 0 &&
+      businessDayOpeningHours[0].type == "open" &&
+      dayOfWeek != "sunday"
+    ) {
+      const nextWorkingDay = daysOfTheWeek[i + 1];
+      const nextBusinessHour = listOfWorkingHr[nextWorkingDay];
+      businessDayOpeningHours[businessDayOpeningHours.length] =
+        nextBusinessHour[0];
+      nextBusinessHour.splice(0, 1);
+      printBusinessHour(dayOfWeek, businessDayOpeningHours);
+    }
+
+    if (
+      businessDayOpeningHours.length > 0 &&
+      businessDayOpeningHours.length % 2 != 0 &&
+      businessDayOpeningHours[0].type == "open" &&
+      dayOfWeek == "sunday"
+    ) {
+      const nextWorkingDay = daysOfTheWeek[0];
+      const nextBusinessHour = listOfWorkingHr[nextWorkingDay];
+      businessDayOpeningHours[businessDayOpeningHours.length] =
+        nextBusinessHour[0];
+      nextBusinessHour.splice(0, 1);
+      printBusinessHour(dayOfWeek, businessDayOpeningHours);
     }
   }
-  
-  duplicateAndMissing([6,5,4,5,3,2]);
-  duplicateAndMissing([5,4,4,1,3]);
-  duplicateAndMissing([1,1,2]);
-  duplicateAndMissing([1,1]);
+};
+
+const printBusinessHour = (dayOfWeek, listOfBusinessHour) => {
+  //   console.log(listOfWorkingHr);
+  //   console.log("");
+  //   console.log("");
+  process.stdout.write(dayOfWeek + ":");
+  for (const hour of listOfBusinessHour) {
+    process.stdout.write(hour.type + " ");
+    process.stdout.write(new Date(hour.value).toLocaleTimeString() + ", ");
+  }
+  console.log(""); // Add a new Line
+};
+
+const printCloseBusinessDay = (dayOfWeek) => {
+  console.log(dayOfWeek + ":", "Closed");
+};
+
+console.log(openingHours(listOfWorkingHr));
