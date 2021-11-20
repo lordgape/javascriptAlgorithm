@@ -1,3 +1,24 @@
+/* Write a program that, given an array A[] of n numbers and another number x, determines whether or not there exist two elements in A[] whose sum is exactly x. */
+
+const getPair = (arr, target) => {
+  const visited = new Set();
+
+  for (const element of arr) {
+    const temp = target - element;
+
+    if (visited.has(temp)) {
+      return [temp, element];
+    }
+    visited.add(element);
+  }
+
+  return [];
+};
+
+console.log(getPair([1, 2, 3], 5));
+console.log(getPair([0, -1, 2, -3, 1], -2));
+
+
 const numberOnly = (n) => {
   n.forEach((element) => {});
   return n.filter((item) => /\d/.test(item));
