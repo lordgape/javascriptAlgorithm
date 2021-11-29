@@ -27,4 +27,3 @@ Person.changeColor(mark,'Yellow');
 console.dir(john);
 console.log('John', john['changeName'](john,'Red'));
 console.log('Mark', mark.color);
-
