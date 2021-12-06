@@ -34,4 +34,4 @@ const reverseCharacter = (c, rotationFactor) => {
 // rotationFactor = 3
 // output = Cheud-726?
 
-console.log(rotationCipher("Zebra-493?", 3));
+console.log(rotationCipher("All-convoYs-9-be:Alert1.", 4));
