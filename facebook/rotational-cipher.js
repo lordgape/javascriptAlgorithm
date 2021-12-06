@@ -1,4 +1,12 @@
-const test = (c = 9, rotationFactor = 3) => {
+const rotationCipher = (word, rotationFactor) => {
+  const cipher = [];
+  for (const char of word) {
+    cipher.push(reverseCharacter(char, rotationFactor));
+  }
+  return cipher.join("");
+};
+
+const reverseCharacter = (c, rotationFactor) => {
   if (/[A-Z]/.test(c)) {
     const reverseChar =
       ((c.charCodeAt(0) - "A".charCodeAt(0) + rotationFactor) % 26) +
@@ -16,11 +24,14 @@ const test = (c = 9, rotationFactor = 3) => {
   }
 
   if (/[0-9]/.test(c)) {
-    console.log("0-9");
-    return (c + rotationFactor) % 10;
+    return ((c - 1 + rotationFactor) % 10) + 1;
   }
 
   return c;
 };
 
-console.log(test());
+// input = Zebra-493?
+// rotationFactor = 3
+// output = Cheud-726?
+
+console.log(rotationCipher("Zebra-493?", 3));
