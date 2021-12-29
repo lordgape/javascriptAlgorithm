@@ -1,4 +1,4 @@
-const numPlayer = (K, scores) => {
+const numPlayerOriginal = (K, scores) => {
   scores = scores.filter((score) => score > 0);
   scores = scores.sort((a, b) => (a - b) * -1);
   let position = 1;
