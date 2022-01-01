@@ -8,7 +8,7 @@ You may reuse elements of wordBank as many times as needed
 
 */
 
-const canConstruct = (target, wordBank, memo = {}) => {
+const countConstruct = (target, wordBank, memo = {}) => {
   if (target in memo) return memo[target];
   if (target === "") return true;
 
@@ -16,7 +16,7 @@ const canConstruct = (target, wordBank, memo = {}) => {
     if (target.indexOf(word) == 0) {
       const suffix = target.slice(word.length);
 
-      if (canConstruct(suffix, wordBank, memo) === true) {
+      if (countConstruct(suffix, wordBank, memo) === true) {
         memo[target] = true;
         return true;
       }
