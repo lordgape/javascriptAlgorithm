@@ -5,20 +5,19 @@ The function should return a boolean indicating whether or not it is possible to
 You may use an element of the array as many times as needed. You may assume that all input members are non-negatives.
 */
 
-const canSum = (targetSum, numbers, memo = {}) => {
-  if (targetSum in memo) return memo[targetSum];
-  if (targetSum == 0) return true;
-  if (targetSum < 0) return false;
+const canSum = (targetSum, numbers) => {
+  const table = Array(targetSum + 1).fill(false);
+  table[0] = true;
 
-  for (const number of numbers) {
-    if (canSum(targetSum - number, numbers, memo)) {
-      memo[targetSum] = true;
-      return memo[targetSum];
+  for (let i = 0; i <= targetSum; i++) {
+    if (table[i]) {
+      for (num of numbers) {
+        table[i + num] = true;
+      }
     }
   }
 
-  memo[targetSum] = false;
-  return memo[targetSum];
+  return table[targetSum];
 };
 
 console.log(canSum(7, [2, 3])); // true
