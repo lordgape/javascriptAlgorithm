@@ -15,5 +15,5 @@ const gridTraveler = (m, n, memo = {}) => {
   return memo[pos];
 };
 
-console.log(gridTraveler(3, 2));
-console.log(gridTraveler(18, 5));
+console.log(gridTraveler(3, 2)); // 3
+console.log(gridTraveler(18, 5)); // 5985

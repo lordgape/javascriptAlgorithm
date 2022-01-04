@@ -1,3 +1,29 @@
+const arr = [23, "apple", ["banana", "strawberry", "apple", 23], ["banana", "strawberry", "apple", 23]];
+const stockLeft = (arr, item) => {
+  let sum = 0;
+  arr = arr.flat();
+  for (const element of arr) {
+    if (element === item) {
+      sum += 1;
+    }
+  }
+
+  return sum;
+};
+
+console.log(stockLeft(arr, 23));
+console.log(stockLeft(arr, 'banana'));
+
+const matchKeyCombo = (sequence) => {
+  const qSplit = sequence.toLowerCase().split("qee");
+  const zSplit = sequence.toLowerCase().split("zcc");
+ 
+  return qSplit.length == zSplit.length;
+  
+};
+
+console.log(matchKeyCombo("QEEAZCC"));
+
 /* Write a program that, given an array A[] of n numbers and another number x, determines whether or not there exist two elements in A[] whose sum is exactly x. */
 
 const getPair = (arr, target) => {
