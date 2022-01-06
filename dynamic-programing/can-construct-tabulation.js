@@ -8,23 +8,21 @@ You may reuse elements of wordBank as many times as needed
 
 */
 
-const canConstruct = (target, wordBank, memo = {}) => {
-  if (target in memo) return memo[target];
-  if (target === "") return true;
+const canConstruct = (target, wordBank) => {
+  const table = Array(target.length + 1).fill(false);
+  table[0] = true;
 
-  for (word of wordBank) {
-    if (target.indexOf(word) == 0) {
-      const suffix = target.slice(word.length);
-
-      if (canConstruct(suffix, wordBank, memo) === true) {
-        memo[target] = true;
-        return true;
+  for (let i = 0; i <= target.length; i++) {
+    if (table[i]) {
+      for (word of wordBank) {
+        if (target.slice(i, i + word.length) === word) {
+          table[i + word.length] = true;
+        }
       }
     }
   }
 
-  memo[target] = false;
-  return false;
+  return table[target.length];
 };
 
 console.log(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])); // true
