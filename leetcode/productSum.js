@@ -5,19 +5,22 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 You must write an algorithm that runs in O(n) time and without using the division operation. */
 
 const productExceptSelf = (nums) => {
-  nums = nums.map((num, numIndex) => {
-    return nums.reduce((acc, cur, index) => {
-      if (index != numIndex) {
-        console.log(acc,cur);
-        acc = Math.abs(acc * cur);
-        
-      }
-      return acc;
-    }, 1);
-  });
+  let ans = [];
 
-  return nums;
+  ans[0] = 1;
+  for (let i = 1; i < nums.length; i++) {
+    ans[i] = ans[i - 1] * nums[i - 1];
+  }
+
+  let right = 1;
+
+  for (let i = nums.length - 1; i >= 0; i--) {
+    ans[i] = ans[i] * right;
+    right *= nums[i];
+  }
+
+  return ans;
 };
 
-// console.log(productExceptSelf([1, 2, 3, 4]));
+console.log(productExceptSelf([1, 2, 3, 4]));
 console.log(productExceptSelf([-1,1,0,-3,3]));

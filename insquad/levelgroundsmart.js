@@ -24,21 +24,20 @@ Operation two - [2,*2*,2,2]
 */
 
 const levelGround = (ground) => {
-  const hash = {};
-  let maxSquare = 0;
-  for (let i = 0; i < ground.length; i++) {
-    hash[ground[i]] = ++hash[ground[i]] || 1;
-    if (hash[ground[i]] > maxSquare) {
-      maxSquare = ground[i];
-    }
-  }
+  
+    const min = Math.min(...ground);
+    const max = Math.max(...ground);
 
-  const difference = [];
-  for (let i = 0; i < ground.length; i++) {
-    difference.push(Math.abs(maxSquare - ground[i]));
-  }
-//   console.log(difference,maxSquare);
-  return difference.reduce((acc, cur) => acc + cur, 0);
+    if(isNaN(max) || isNaN(min) || max == -Infinity ) {
+        return 0
+    }
+
+    return max - min;
+
+    
+  
+
+  return 0
 };
 
 console.log(levelGround([1, 3, 2, 2]));
