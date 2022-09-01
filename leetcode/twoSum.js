@@ -13,10 +13,13 @@ const twoSum = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     const remainder = target - nums[i];
     if (remainder in hash) {
-      return [hash[remainder], i];
+      // return [hash[remainder], i];
+      return true
     }
     hash[nums[i]] = i;
   }
+
+  return false
 };
 
 console.log(twoSum([3, 3], 6));
