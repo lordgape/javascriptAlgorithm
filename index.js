@@ -1,3 +1,7 @@
-const Remote = require('./util/remote')
+const test = (S) => {
+  // TODO: check my todos
 
-Remote.multipleTwoOperands(5,5);
+  return S;
+};
+
+console.log(test("CODILITY"));
