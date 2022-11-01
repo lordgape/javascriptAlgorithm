@@ -1,7 +1,5 @@
-const test = (S) => {
-  // TODO: check my todos
+const test = () => {
+    console.log(`Working`);
+}
 
-  return S;
-};
-
-console.log(test("CODILITY"));
+test()

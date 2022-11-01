@@ -1,4 +1,9 @@
-const arr = [23, "apple", ["banana", "strawberry", "apple", 23], ["banana", "strawberry", "apple", 23]];
+const arr = [
+  23,
+  "apple",
+  ["banana", "strawberry", "apple", 23],
+  ["banana", "strawberry", "apple", 23],
+];
 const stockLeft = (arr, item) => {
   let sum = 0;
   arr = arr.flat();
@@ -12,14 +17,13 @@ const stockLeft = (arr, item) => {
 };
 
 console.log(stockLeft(arr, 23));
-console.log(stockLeft(arr, 'banana'));
+console.log(stockLeft(arr, "banana"));
 
 const matchKeyCombo = (sequence) => {
   const qSplit = sequence.toLowerCase().split("qee");
   const zSplit = sequence.toLowerCase().split("zcc");
- 
+
   return qSplit.length == zSplit.length;
-  
 };
 
 console.log(matchKeyCombo("QEEAZCC"));
@@ -43,7 +47,6 @@ const getPair = (arr, target) => {
 
 console.log(getPair([1, 2, 3], 5));
 console.log(getPair([0, -1, 2, -3, 1], -2));
-
 
 const numberOnly = (n) => {
   n.forEach((element) => {});
