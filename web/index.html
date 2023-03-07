@@ -22,8 +22,6 @@
         height: 223px;
         left: 269px;
         top: 429px;
-
-        border: 1px solid red;
       }
 
       /* Media Rule for Small Screens (e.g. Mobile Devices) */
@@ -39,14 +37,24 @@
       /* Media Rule for Medium Screens (e.g. Tablets) */
       @media only screen and (min-width: 576px) and (max-width: 992px) {
         .message-container {
-          width: 52%;
-          left: 7%;
+          width: 80%;
+          left: 10%;
           top: 150px;
         }
       }
 
       /* Media Rule for Large Screens (e.g. Desktops, Laptops) */
-      @media only screen and (min-width: 992px) {
+      @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        .message-container {
+          width: 50%;
+          height: auto;
+          left: 25%;
+          top: 200px;
+        }
+      }
+
+      /* Media Rule for Extra Large Screens (e.g. Large Desktops) */
+      @media only screen and (min-width: 1200px) {
         .message-container {
           width: 662px;
           height: 223px;
@@ -76,9 +84,7 @@
   <body>
     <div class="row">
       <div class="message-container">
-          <h1 class="welcome-h1">
-              Welcome
-          </h1>
+        <h1 class="welcome-h1">Welcome</h1>
       </div>
     </div>
   </body>
