@@ -60,8 +60,8 @@
         .message-container {
           width: 662px;
           height: 223px;
-          left: 269px;
-          top: 429px;
+          left: 403px;
+          top: 329px;
         }
       }
 
@@ -94,6 +94,62 @@
         
         color: #0F253C;
       }
+
+      .wallpaper-logo {
+        position: absolute;
+        left: 15.89%;
+        right: 40.24%;
+        top: 0%;
+        bottom: 0%;
+        height: 885px;
+        width: 1034px;
+      }
+      
+      /* Media Rule for Small Screens (e.g. Mobile Devices) */
+      @media only screen and (max-width: 576px) {
+        .wallpaper-logo {
+          left: 0%;
+          right: 0%;
+          width: 100%;
+        }
+      }
+      
+      /* Media Rule for Medium Screens (e.g. Tablets) */
+      @media only screen and (min-width: 576px) and (max-width: 992px) {
+        .wallpaper-logo {
+          left: 5%;
+          right: 5%;
+          width: 90%;
+        }
+      }
+      
+      /* Media Rule for Large Screens (e.g. Desktops, Laptops) */
+      @media only screen and (min-width: 992px) and (max-width: 1500px) {
+        .wallpaper-logo {
+          left: 10%;
+          right: 10%;
+          width: 80%;
+        }
+      }
+      
+      /* Media Rule for Extra Large Screens (e.g. Large Desktops) */
+      @media only screen and (min-width: 1500px) {
+        .wallpaper-logo {
+          left: 15.89%;
+          right: 40.24%;
+          width: 1034px;
+        }
+      }
+
+      
+
+      .wallpaper-logo img {
+          max-width: 100%;
+          max-height: 100%;
+      }
+
+     
+
     </style>
   </head>
 
@@ -102,12 +158,16 @@
       <div class="message-container">
         <h1 class="welcome-h1">Welcome</h1>
         <p class="welcome-p">
-            We have been working to bring you a new IremboGov experience, 
-            easier to use, has more &amp; more e-certificates and less attachments. </br> </br>
-
-            We have been working to bring you a new IremboGov experience, 
+            We have been working to bring you a new IremboGov experience, <br />
+            easier to use, has more &amp; more e-certificates and less attachments. <br /><br />
+            We have been working to bring you a new IremboGov experience,<br />
             easier to use, has more &amp; mo
         </p>
+      </div>
+
+      <div class="wallpaper-logo">
+
+        <img src="O.svg" alt="">
       </div>
     </div>
   </body>
