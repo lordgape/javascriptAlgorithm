@@ -22,7 +22,7 @@
         height: 223px;
         left: 269px;
         top: 429px;
-        
+
         border: 1px solid red;
       }
 
@@ -84,15 +84,15 @@
       .welcome-p {
         width: 662px;
         height: 147px;
-        
-        font-family: 'TT Norms Pro';
+
+        font-family: "TT Norms Pro";
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
         line-height: 24px;
         letter-spacing: -0.434783px;
-        
-        color: #0F253C;
+
+        color: #0f253c;
       }
 
       .wallpaper-logo {
@@ -104,7 +104,7 @@
         height: 885px;
         width: 1034px;
       }
-      
+
       /* Media Rule for Small Screens (e.g. Mobile Devices) */
       @media only screen and (max-width: 576px) {
         .wallpaper-logo {
@@ -113,7 +113,7 @@
           width: 100%;
         }
       }
-      
+
       /* Media Rule for Medium Screens (e.g. Tablets) */
       @media only screen and (min-width: 576px) and (max-width: 992px) {
         .wallpaper-logo {
@@ -122,7 +122,7 @@
           width: 90%;
         }
       }
-      
+
       /* Media Rule for Large Screens (e.g. Desktops, Laptops) */
       @media only screen and (min-width: 992px) and (max-width: 1500px) {
         .wallpaper-logo {
@@ -132,7 +132,7 @@
           height: 800px;
         }
       }
-      
+
       /* Media Rule for Extra Large Screens (e.g. Large Desktops) */
       @media only screen and (min-width: 1500px) {
         .wallpaper-logo {
@@ -142,33 +142,112 @@
         }
       }
 
-      
-
       .wallpaper-logo img {
-          max-width: 100%;
-          max-height: 100%;
+        max-width: 100%;
+        max-height: 100%;
       }
 
-     
+      .authentication-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 60px;
+        gap: 30px;
+        position: absolute;
+        width: 557px;
+        height: 594px;
+        left: 995px;
+        top: 243px;
+        background: #ffffff;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05),
+                    0px 25px 35px rgba(0, 0, 0, 0.03);
+        border-radius: 5px;
+      }
+      
+      /* Media Rule for Small Screens (e.g. Mobile Devices) */
+      @media only screen and (max-width: 576px) {
+        .authentication-container {
+          width: 90%;
+          padding: 20px;
+          left: 5%;
+          right: 5%;
+          top: 50px;
+          height: auto;
+        }
+      }
+      
+      /* Media Rule for Medium Screens (e.g. Tablets) */
+      @media only screen and (min-width: 576px) and (max-width: 992px) {
+        .authentication-container {
+          width: 80%;
+          padding: 30px;
+          left: 10%;
+          right: 10%;
+          top: 100px;
+          height: auto;
+        }
+      }
+      
+      /* Media Rule for Large Screens (e.g. Desktops, Laptops) */
+      @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        .authentication-container {
+          width: 70%;
+          padding: 40px;
+          left: 15%;
+          right: 15%;
+          top: 150px;
+          height: auto;
+        }
+      }
+      
+      /* Media Rule for Extra Large Screens (e.g. Large Desktops) */
+      @media only screen and (min-width: 1200px) {
+        .authentication-container {
+          width: 557px;
+          padding: 40px 60px;
+          left: 995px;
+          top: 243px;
+          height: 594px;
+        }
+      }
 
+      .rectangle {
+        box-sizing: border-box;
+
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        bottom: 0px;
+        top: 0px;
+
+        /* Irembo sky blue */
+
+        background: #eaf4ff;
+        /* Regular Grey */
+
+        border: 1px solid #eff1f3;
+      }
     </style>
   </head>
 
   <body>
-    <div class="row">
+    <div class="row" style="background: #eaf4ff">
+      <div class="rectangle"></div>
       <div class="message-container">
         <h1 class="welcome-h1">Welcome</h1>
         <p class="welcome-p">
-            We have been working to bring you a new IremboGov experience, <br />
-            easier to use, has more &amp; more e-certificates and less attachments. <br /><br />
-            We have been working to bring you a new IremboGov experience,<br />
-            easier to use, has more &amp; mo
+          We have been working to bring you a new IremboGov experience, <br />
+          easier to use, has more &amp; more e-certificates and less
+          attachments. <br /><br />
+          We have been working to bring you a new IremboGov experience,<br />
+          easier to use, has more &amp; mo
         </p>
       </div>
 
-      <div class="wallpaper-logo">
+      <div class="authentication-container"></div>
 
-        <img src="O.svg" alt="">
+      <div class="wallpaper-logo">
+        <img src="O.svg" alt="" />
       </div>
     </div>
   </body>
