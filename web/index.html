@@ -22,6 +22,8 @@
         height: 223px;
         left: 269px;
         top: 429px;
+        
+        border: 1px solid red;
       }
 
       /* Media Rule for Small Screens (e.g. Mobile Devices) */
@@ -44,17 +46,17 @@
       }
 
       /* Media Rule for Large Screens (e.g. Desktops, Laptops) */
-      @media only screen and (min-width: 992px) and (max-width: 1200px) {
+      @media only screen and (min-width: 992px) and (max-width: 1500px) {
         .message-container {
           width: 50%;
           height: auto;
-          left: 25%;
+          left: 10%;
           top: 200px;
         }
       }
 
       /* Media Rule for Extra Large Screens (e.g. Large Desktops) */
-      @media only screen and (min-width: 1200px) {
+      @media only screen and (min-width: 1500px) {
         .message-container {
           width: 662px;
           height: 223px;
@@ -78,6 +80,20 @@
 
         color: #0f253c;
       }
+
+      .welcome-p {
+        width: 662px;
+        height: 147px;
+        
+        font-family: 'TT Norms Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.434783px;
+        
+        color: #0F253C;
+      }
     </style>
   </head>
 
@@ -85,6 +101,13 @@
     <div class="row">
       <div class="message-container">
         <h1 class="welcome-h1">Welcome</h1>
+        <p class="welcome-p">
+            We have been working to bring you a new IremboGov experience, 
+            easier to use, has more &amp; more e-certificates and less attachments. </br> </br>
+
+            We have been working to bring you a new IremboGov experience, 
+            easier to use, has more &amp; mo
+        </p>
       </div>
     </div>
   </body>
