@@ -31,32 +31,61 @@
         .message-container {
           width: 100%;
           height: auto;
-          left: 0;
-          top: 0;
+          left: 50px;
+          top: 120px;
+
+          gap: 0px;
+        }
+
+        .message-container p {
+          font-size: 16px;
+        }
+        .message-container h1 {
+          font-size: 25px;
         }
       }
 
       /* Media Rule for Medium Screens (e.g. Tablets) */
-      @media only screen and (min-width: 576px) and (max-width: 992px) {
+      @media only screen and (min-width: 576px) and (max-width: 899px) {
         .message-container {
           width: 80%;
-          left: 10%;
-          top: 150px;
+          left: 60px;
+          top: 280px;
+        }
+      }
+     
+      /* Media Rule for Medium Screens (e.g. Tablets) */
+      @media only screen and (min-width: 900px) and (max-width: 992px) {
+        .message-container {
+          width: 80%;
+          left: 100px;
+          top: 300px;
+        }
+      }
+      /* Media Rule for Medium Screens (e.g. Tablets) */
+      @media only screen and (min-width: 992px) and (max-width: 1024px) {
+        .message-container {
+          width: 80%;
+          left: 60px;
+          top: 220px;
+          gap: 15px;
+        }
+
+        .message-container p {
+          font-size: 16px;
+        }
+        .message-container h1 {
+          font-size: 30px;
         }
       }
 
       /* Media Rule for Large Screens (e.g. Desktops, Laptops) */
-      @media only screen and (min-width: 992px) and (max-width: 1500px) {
+      @media only screen and (min-width: 1025px) and (max-width: 1444px) {
         .message-container {
           width: 50%;
           height: auto;
-          left: 16%;
-          top: 250px;
-        }
-
-       
-        .message-container p {
-          font-size: 16px;
+          left: 100px;
+          top: 300px;
         }
       }
 
@@ -65,7 +94,7 @@
         .message-container {
           width: 662px;
           height: 223px;
-          left: 403px;
+          left: 150px;
           top: 329px;
         }
       }
@@ -183,7 +212,7 @@
       }
       
       /* Media Rule for Medium Screens (e.g. Tablets) */
-      @media only screen and (min-width: 576px) and (max-width: 992px) {
+      @media only screen and (min-width: 576px) and (max-width: 899px) {
         .authentication-container {
           width: 80%;
           padding: 30px;
@@ -262,21 +291,22 @@
   <body>
     <div class="row" style="background: #eaf4ff">
       <div class="rectangle"></div>
-      <div class="message-container">
-        <h1 class="welcome-h1">Welcome</h1>
-        <p class="welcome-p">
-          We have been working to bring you a new IremboGov experience, <br />
-          easier to use, has more &amp; more e-certificates and less
-          attachments. <br /><br />
-          We have been working to bring you a new IremboGov experience,<br />
-          easier to use, has more &amp; mo
-        </p>
-      </div>
+      
 
       
 
       <div class="wallpaper-logo">
         <img src="O.svg" alt="" />
+        <div class="message-container">
+          <h1 class="welcome-h1">Welcome</h1>
+          <p class="welcome-p">
+            We have been working to bring you a new IremboGov experience, <br />
+            easier to use, has more &amp; more e-certificates and less
+            attachments. <br /><br />
+            We have been working to bring you a new IremboGov experience,<br />
+            easier to use, has more &amp; mo
+          </p>
+        </div>
         <div class="authentication-container"></div>
       </div>
     </div>
