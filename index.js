@@ -1,10 +1,28 @@
-const test = () => {
-  const object = {
-    user_id: "2f48a122-8cb6-4501-9a38-ddbb266a0fbc",
-    accountHolderName: "ROSEVIEW GARDEN Lordgape",
-    accountNumber: "0083436487",
-  };
-  console.log(JSON.stringify(object));
+// Name checker. Aleast two must be present to mark as true.
+const test = (targetName,compareName) => {
+ 
+  let compareTree = targetName.toLowerCase().trim().split(" ").reduce((acc, currentValue) => {
+    acc[currentValue] = 0;
+    return acc;
+  }, {});
+
+  compareTree.sum = 0
+
+  compareTree = compareName.toLowerCase().trim().split(" ").reduce((acc, currentValue) => {
+    if (currentValue in acc) {
+      acc[currentValue] += 1;
+
+      acc.sum += acc[currentValue];
+    }
+
+    return acc;
+  }, compareTree);
+
+  console.log(JSON.stringify(compareTree));
+
+  return compareTree.sum - 1 >= 1
+
+
 };
 
-test();
+console.log(test("Chesvic michel john hillary"," Hillary Chesvic"));
